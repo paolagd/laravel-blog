@@ -15,12 +15,10 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    return view('posts');
+    return view('posts', ['posts' => Post::findAll()]);
 });
 
 
 Route::get('posts/{post}', function ($slug) {
-    $post = Post::find($slug);
-    return view('post', ['post' => $post]);
-
+    return view('post', ['post' => Post::find($slug)]);
 })->where('post', '[A-z_\-]+');
