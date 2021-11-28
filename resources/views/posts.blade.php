@@ -1,14 +1,14 @@
-<!doctype html>
+@extends('layout')
 
-<title>
-    My Blog
-</title>
-<link rel="stylesheet" href="/app.css">
+@section('content')
 
 <body>
     @foreach ($posts as $post)
-        <article>
-            {!! $post !!}
-        </article>
+    <article>
+        {!! $post !!}
+    </article>
     @endforeach
 </body>
+
+
+@endsection

@@ -1,9 +1,6 @@
-<!doctype html>
+@extends('layout')
 
-<title>
-    My Blog
-</title>
-<link rel="stylesheet" href="/app.css">
+@section('content')
 
 <body>
     <article>
@@ -11,3 +8,5 @@
     </article>
     <a href="/">Go Back</a>
 </body>
+
+@endsection
