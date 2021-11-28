@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="/app.css">
 
 <body>
-    <?php foreach ($posts as $post) : ?>
+    @foreach ($posts as $post)
         <article>
-            <?= $post; ?>
+            {!! $post !!}
         </article>
-    <?php endforeach; ?>
+    @endforeach
 </body>
