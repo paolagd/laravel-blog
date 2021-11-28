@@ -18,12 +18,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('post/{post}', function ($postURL) {
-    $path = __DIR__ . "/../resources/posts/{$postURL}.html";
+Route::get('posts/{post}', function ($postURL) {
 
-    if(! file_exists($path)){
+    if (!file_exists($path =  __DIR__ . "/../resources/posts/{$postURL}.html")) {
         return redirect('/');
     }
 
-    return view('post', ['post' => $path]);
-});
+    $post = cache()->remember("posts.{$postURL}", 1000, fn () => file_get_contents($path));
+
+    return view('post', ['post' => $post]);
+})->where('post', '[A-z_\-]+');
